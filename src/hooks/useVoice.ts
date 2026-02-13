@@ -24,7 +24,9 @@ export const useVoice = () => {
         transcript,
         listening,
         resetTranscript,
-        browserSupportsSpeechRecognition
+        browserSupportsSpeechRecognition,
+        isMicrophoneAvailable,
+        error
     } = useSpeechRecognition({ commands });
 
     // Handle TTS using Native SpeechSynthesis
@@ -108,6 +110,11 @@ export const useVoice = () => {
     };
 
     const startListening = () => {
+        if (!window.isSecureContext) {
+            console.error("Speech Recognition requires a secure context (HTTPS) or localhost.");
+            alert("Voice features require HTTPS. Please deploy with SSL.");
+            return;
+        }
         // Continuous listening for demo
         SpeechRecognition.startListening({ continuous: true, language: 'en-US' });
     };
@@ -128,6 +135,13 @@ export const useVoice = () => {
         }
     }, []);
 
+    // Log Speech Recognition Errors
+    useEffect(() => {
+        if (error) {
+            console.error("Speech Recognition Error:", error);
+        }
+    }, [error]);
+
     // Error handling and auto-restart
     useEffect(() => {
         if (!browserSupportsSpeechRecognition) {
@@ -135,15 +149,24 @@ export const useVoice = () => {
             return;
         }
 
+        if (!isMicrophoneAvailable) {
+            console.warn("Microphone is not available.");
+            // You might want to show a UI alert here as well
+        }
+
+        if (!window.isSecureContext) {
+            console.warn("Application is not running in a secure context (HTTPS). Speech Recognition may fail.");
+        }
+
         // Restart listening if it stops unexpectedly
-        if (!listening && !isSpeaking) {
+        if (!listening && !isSpeaking && isMicrophoneAvailable) {
             // Small delay to prevent rapid loops
             const timeout = setTimeout(() => {
                 startListening();
             }, 100);
             return () => clearTimeout(timeout);
         }
-    }, [listening, isSpeaking, browserSupportsSpeechRecognition]);
+    }, [listening, isSpeaking, browserSupportsSpeechRecognition, isMicrophoneAvailable]);
 
 
     return {
