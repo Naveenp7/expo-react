@@ -29,6 +29,8 @@ declare module 'react-speech-recognition' {
         listening: boolean;
         resetTranscript: () => void;
         browserSupportsSpeechRecognition: boolean;
+        isMicrophoneAvailable: boolean;
+        error: any;
     };
 
     const SpeechRecognition: SpeechRecognition;
