@@ -64,8 +64,8 @@ export const useDetection = () => {
             const [x, y, width, height] = prediction.bbox;
             const areaPercentage = (width * height) / (videoWidth * videoHeight);
 
-            // If person covers more than 25% of frame, they are considered "close"
-            if (areaPercentage > 0.25) {
+            // If person covers more than 15% of frame, they are considered "close"
+            if (areaPercentage > 0.15) {
               foundClose = true;
             }
 

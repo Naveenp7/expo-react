@@ -39,6 +39,7 @@ function App() {
   }, [isPersonClose, personDetected, cooldown, status, isModelLoaded]);
 
   const triggerWelcome = () => {
+    console.log("Triggering Welcome Sequence");
     welcomeTriggered.current = true;
     setStatus('WELCOMING');
     setCooldown(true);
