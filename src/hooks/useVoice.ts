@@ -110,13 +110,20 @@ export const useVoice = () => {
     };
 
     const startListening = () => {
+        console.log("Attempting to start listening...");
         if (!window.isSecureContext) {
             console.error("Speech Recognition requires a secure context (HTTPS) or localhost.");
             alert("Voice features require HTTPS. Please deploy with SSL.");
             return;
         }
-        // Continuous listening for demo
-        SpeechRecognition.startListening({ continuous: true, language: 'en-US' });
+
+        try {
+            // Continuous listening for demo
+            SpeechRecognition.startListening({ continuous: true, language: 'en-US' });
+            console.log("SpeechRecognition.startListening called.");
+        } catch (err) {
+            console.error("Failed to call SpeechRecognition.startListening:", err);
+        }
     };
 
     const stopListening = () => {
@@ -159,7 +166,9 @@ export const useVoice = () => {
         }
 
         // Restart listening if it stops unexpectedly
-        if (!listening && !isSpeaking) {
+        // BUT ONLY if we have permission / microphone access
+        // Otherwise this creates an infinite loop of denial errors
+        if (!listening && !isSpeaking && isMicrophoneAvailable && error !== 'not-allowed' && error !== 'service-not-allowed') {
             // Small delay to prevent rapid loops
             const timeout = setTimeout(() => {
                 startListening();
