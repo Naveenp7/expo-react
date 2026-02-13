@@ -1,0 +1,109 @@
+[
+    {
+        "id": "1",
+        "keywords": [
+            "call",
+            "phone",
+            "alert",
+            "emergency",
+            "automatic call",
+            "ai call"
+        ],
+        "answer": "This project is an AI automated calling system. When an emergency situation is detected, the system automatically makes a phone call to a predefined number and sends alerts to ensure safety.",
+        "category": "AI Safety"
+    },
+    {
+        "id": "2",
+        "keywords": [
+            "intruder",
+            "theft",
+            "security",
+            "unknown person",
+            "trespass",
+            "unauthorized"
+        ],
+        "answer": "This is an AI intruder detection system. It uses a camera to monitor the area and detects unknown persons entering restricted zones. When an intruder is detected, it can trigger alarms and notifications.",
+        "category": "Security AI"
+    },
+    {
+        "id": "3",
+        "keywords": [
+            "fall",
+            "fell",
+            "accident",
+            "elderly",
+            "hospital",
+            "patient",
+            "fall detection"
+        ],
+        "answer": "This project is a fall detection system designed for elderly and patient safety. Using computer vision, the system detects when a person falls and immediately sends alerts to caregivers or family members.",
+        "category": "Healthcare AI"
+    },
+    {
+        "id": "4",
+        "keywords": [
+            "smart board",
+            "digital board",
+            "presentation",
+            "teaching",
+            "classroom",
+            "interactive"
+        ],
+        "answer": "This is an AI-powered smart board. It allows users to write, draw, and interact using gestures or touch. It can assist in teaching, presentations, and interactive learning using modern technology.",
+        "category": "Smart Classroom"
+    },
+    {
+        "id": "5",
+        "keywords": [
+            "ai assistant",
+            "who are you",
+            "your name",
+            "assistant",
+            "guide"
+        ],
+        "answer": "I am the AI assistant for this tech fest. I can explain all the projects and guide you around the exhibition. Feel free to ask me any questions.",
+        "category": "General"
+    },
+    {
+        "id": "6",
+        "keywords": [
+            "projects",
+            "what projects",
+            "showcase",
+            "expo",
+            "tech fest"
+        ],
+        "answer": "This tech fest showcases multiple AI and technology projects including safety systems, smart classroom tools, computer vision projects, and interactive games built by students.",
+        "category": "General"
+    },
+    {
+        "id": "7",
+        "keywords": [
+            "how works",
+            "technology",
+            "model",
+            "ai model",
+            "working",
+            "how does this work",
+            "explain the technology",
+            "what is under the hood"
+        ],
+        "answer": "Most of these projects use artificial intelligence, computer vision, and machine learning models. Cameras capture visual data, AI models process the information, and the system responds intelligently.",
+        "category": "General"
+    },
+    {
+        "id": "8",
+        "keywords": [
+            "hello",
+            "hi",
+            "hey",
+            "greetings",
+            "good morning",
+            "good afternoon",
+            "good evening",
+            "talk to me"
+        ],
+        "answer": "Hello! Welcome to the AI Tech Expo. I am your guide. How can I help you today?",
+        "category": "General"
+    }
+]
