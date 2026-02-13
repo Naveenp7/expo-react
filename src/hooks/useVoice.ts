@@ -159,7 +159,7 @@ export const useVoice = () => {
         }
 
         // Restart listening if it stops unexpectedly
-        if (!listening && !isSpeaking && isMicrophoneAvailable) {
+        if (!listening && !isSpeaking) {
             // Small delay to prevent rapid loops
             const timeout = setTimeout(() => {
                 startListening();
